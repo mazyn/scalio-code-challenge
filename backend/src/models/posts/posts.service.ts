@@ -10,11 +10,11 @@ import { PostsRepository } from './posts.repository';
 export class PostsService {
   constructor(private repo: PostsRepository) {}
 
-  getAll(): Post[] {
+  async getAll(): Promise<Post[]> {
     return this.repo.getAll();
   }
 
-  get(id: string): Post {
+  async get(id: string): Promise<Post> {
     const idNumber = Number(id);
 
     if (!Number.isInteger(idNumber) || idNumber <= 0)

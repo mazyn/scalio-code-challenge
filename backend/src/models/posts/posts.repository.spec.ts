@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import Post from './entities/post.entity';
 import { PostsRepository } from './posts.repository';
+import postsJson from '../../common/data/posts.json';
 
 describe('PostsRepository', () => {
   let provider: PostsRepository;
@@ -18,36 +19,19 @@ describe('PostsRepository', () => {
   });
 
   it('should return all posts', () => {
-    const mockReturn: Post[] = [
-      {
-        userId: 1,
-        id: 1,
-        title: 'foo',
-        body: 'bar',
-      },
-    ];
-
-    jest.spyOn(provider, 'getAll').mockImplementationOnce(() => mockReturn);
+    const expectedPosts = postsJson as Post[];
 
     const result = provider.getAll();
 
-    expect(result).toBe(mockReturn);
-    expect(result.length).toBe(1);
+    expect(result).toBe(expectedPosts);
   });
 
   it('should return a single post', () => {
     const id = 1;
-    const mockReturn: Post = {
-      userId: 1,
-      id: 1,
-      title: 'foo',
-      body: 'bar',
-    };
-
-    jest.spyOn(provider, 'get').mockImplementationOnce(() => mockReturn);
+    const expectedPost = (postsJson as Post[])[0];
 
     const result = provider.get(id);
 
-    expect(result).toBe(mockReturn);
+    expect(result).toBe(expectedPost);
   });
 });

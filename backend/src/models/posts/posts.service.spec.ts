@@ -1,13 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import Post from './entities/post.entity';
 import { PostsService } from './posts.service';
+import { PostsRepository } from './posts.repository';
+import postsJson from '../../common/data/posts.json';
+import { BadRequestException } from '@nestjs/common';
 
 describe('PostsService', () => {
   let service: PostsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [PostsService],
+      providers: [PostsRepository, PostsService],
     }).compile();
 
     service = module.get<PostsService>(PostsService);
@@ -17,38 +20,40 @@ describe('PostsService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return all posts', () => {
-    const mockPosts: Post[] = [
-      {
-        userId: 1,
-        id: 1,
-        title: 'foo',
-        body: "foo's body",
-      },
-      {
-        userId: 1,
-        id: 2,
-        title: 'bar',
-        body: "bar's body",
-      },
-    ];
+  it('should return all posts', async () => {
+    const expectedPosts = postsJson as Post[];
 
-    jest.spyOn(service, 'getAll').mockImplementation(() => mockPosts);
+    const result = await service.getAll();
 
-    expect(service.getAll()).toBe(mockPosts);
+    expect(result).toBe(expectedPosts);
   });
 
-  it('should return a post', () => {
-    const id = 1;
-    const result: Post = {
-      userId: 1,
-      id: 1,
-      title: 'foo',
-      body: 'bar',
-    };
+  describe('get method', () => {
+    it('should return a post', async () => {
+      const id = '1';
+      const expectedPost = (postsJson as Post[])[0];
 
-    jest.spyOn(service, 'get').mockImplementation(() => result);
+      const result = await service.get(id);
 
-    expect(service.get(id)).toBe(result);
+      expect(result).toBe(expectedPost);
+    });
+
+    it('should throw bad request when ID is a string representation of a decimal', async () => {
+      const id = '2.7';
+
+      await expect(service.get(id)).rejects.toThrowError(BadRequestException);
+    });
+
+    it('should throw bad request when ID is a string representation of a number below zero', async () => {
+      const id = '-5';
+
+      await expect(service.get(id)).rejects.toThrowError(BadRequestException);
+    });
+
+    it("should throw bad request when ID is a string that doesn't represent a number", async () => {
+      const id = 'abc';
+
+      await expect(service.get(id)).rejects.toThrowError(BadRequestException);
+    });
   });
 });

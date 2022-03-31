@@ -7,12 +7,12 @@ export class PostsController {
   constructor(private service: PostsService) {}
 
   @Get()
-  public getAll(): Post[] {
-    return this.service.getAll();
+  public async getAll(): Promise<Post[]> {
+    return await this.service.getAll();
   }
 
   @Get(':id')
-  public get(@Param('id') id: string): Post {
-    return this.service.get(id);
+  public async get(@Param('id') id: string): Promise<Post> {
+    return await this.service.get(id);
   }
 }
