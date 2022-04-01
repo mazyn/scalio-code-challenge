@@ -5,12 +5,18 @@
  */
 
 :root {
-  --font-family-primary: 'Oxygen', sans-serif;
-  --font-family-heading: 'Aldrich', 'Oxygen', sans-serif;
-  --primary-color: #FD4900;
-  --text-primary: #FFF;
+  --font-primary: 'Oxygen', sans-serif;
+  --font-accent: 'Aldrich', 'Oxygen', sans-serif;
+  --font-size-1: 5.653rem;
+  --font-size-2: 3.998rem;
+  --font-size-3: 2.827rem;
+  --font-size-4: 1.999rem;
+  --font-size-5: 1.414rem;
+  --font-size-6: 1rem;
+  --color-primary: #FD4900;
+  --color-accent: #0081A7;
+  --color-text: #FFF;
 }
-
 /**
  * Generic CSS best practices/guidelines
  */
@@ -33,7 +39,7 @@ html {
 body {
   height: 100vh;
   width: 100%;
-  color: var(--text-primary);
+  color: var(--color-text);
 }
 
 *, ::before, ::after {
@@ -66,30 +72,30 @@ a {
 
 h1, h2, h3, h4, h5 {
   margin: 3rem 0 1.38rem;
-  font-family: var(--font-family-heading);
+  font-family: var(--font-accent);
   font-weight: 400;
   line-height: 1.3;
 }
 
 h1 {
   margin-top: 0;
-  font-size: 5.653rem;
+  font-size: var(--font-size-1);
 }
 
 h2 {
-  font-size: 3.998rem;
+  font-size: var(--font-size-2);
 }
 
 h3 {
-  font-size: 2.827rem;
+  font-size: var(--font-size-3);
 }
 
 h4 {
-  font-size: 1.999rem;
+  font-size: var(--font-size-4);
 }
 
 h5 {
-  font-size: 1.414rem;
+  font-size: var(--font-size-5);
 }
 
 p {
@@ -101,9 +107,10 @@ small, .text_small {
 }
 
 body, input, button, select, option {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-primary);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.6;
+  color: var(--color-text);
 }
 
 /**
@@ -111,26 +118,26 @@ body, input, button, select, option {
  */
 
 .container {
-  padding: 16px;
+  padding: 1rem;
   min-height: 100%;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
 }
 
 .banner-sm {
-  width: calc(100% + 32px);
+  width: calc(100% + 2rem);
   height: 33.33vh;
   object-fit: cover;
   object-position: center;
-  margin: -16px 0 0 -16px;
+  margin: -1rem 0 0 -1rem;
 }
 
 .heading-title {
-  margin-top: -96px;
+  margin-top: -6rem;
 }
 
 .horizontal {
   display: inline-block;
-  background: linear-gradient(to top, var(--text-primary) 50%, var(--primary-color) 50%);
+  background: linear-gradient(to top, var(--color-text) 50%, var(--color-primary) 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -1,7 +1,22 @@
-<div class="container" role="main">
-  <img src="../assets/images/banner-small.jpg" alt="banner" class="banner-sm"/>
-  <h3 class="heading-title" ngClass.xs.textClip="horizontal" role="heading">
-    {{ 'You are only limited by your id.' | uppercase}}
-  </h3>
-  <p><em>Actually, just the ones from 1 to 10. But don't tell anyone.</em></p>
-</div>
+<main class="container" role="main">
+  <div fxHide.gt-xs="true">
+    <img src="../assets/images/banner-small.jpg" alt="banner" class="banner-sm" />
+    <h3 class="heading-title" ngClass.xs.textClip="horizontal" role="heading">
+      {{ 'You are only limited by your id.' | uppercase }}
+    </h3>
+    <p><em>Actually, just the ones from 1 to 10. But don't tell anyone.</em></p>
+  </div>
+  <form class="id-input-wrapper" fxLayout="row" (ngSubmit)="onSubmit()">
+    <input
+      [(ngModel)]="id"
+      [ngModelOptions]="{ standalone: true }"
+      id="id-input"
+      placeholder="Tell us your ID"
+      type="tel"
+      mask="09"
+      fxFlex="75"
+      aria-label="Input for ID"
+    />
+    <button id="id-button" fxFlex="25" type="submit">Send</button>
+  </form>
+</main>

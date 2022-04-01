@@ -1,5 +1,5 @@
-import { Directive } from "@angular/core";
-import { ClassDirective } from "@angular/flex-layout";
+import { Directive } from '@angular/core';
+import { ClassDirective } from '@angular/flex-layout';
 
 const selector = `[ngClass.xs.textClip]`;
 const inputs = ['ngClass.xs.textClip'];

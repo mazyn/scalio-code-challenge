@@ -1,0 +1,26 @@
+.id-input-wrapper {
+  margin-top: 3rem;
+  max-width: 500px;
+}
+
+#id-input {
+  border: 1px solid var(--color-text);
+  font-family: var(--font-accent);
+  background-color: transparent;
+  font-size: var(--font-size-5);
+  padding: .5rem 1rem;
+}
+
+#id-input::placeholder {
+  color: var(--color-text);
+}
+
+button#id-button {
+  background-color: var(--color-text);
+  border: none;
+  color: var(--color-accent);
+  font-family: var(--font-accent);
+  text-transform: uppercase;
+  font-size: var(--font-size-6);
+  font-weight: 700;
+}
