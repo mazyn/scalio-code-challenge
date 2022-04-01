@@ -13,9 +13,10 @@
   --font-size-4: 1.999rem;
   --font-size-5: 1.414rem;
   --font-size-6: 1rem;
-  --color-primary: #FD4900;
-  --color-accent: #0081A7;
+  --color-primary: #0E1428;
+  --color-accent: #FD4900;
   --color-text: #FFF;
+  --color-scalio: #D5333E;
 }
 /**
  * Generic CSS best practices/guidelines
@@ -64,6 +65,10 @@ li {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button, a {
+  cursor: pointer;
 }
 
 /**
@@ -118,26 +123,26 @@ body, input, button, select, option {
  */
 
 .container {
-  padding: 1rem;
+  padding: 1rem 1.5rem 0;
   min-height: 100%;
   background-color: var(--color-primary);
 }
 
-.banner-sm {
-  width: calc(100% + 2rem);
-  height: 33.33vh;
-  object-fit: cover;
-  object-position: center;
-  margin: -1rem 0 0 -1rem;
-}
-
-.heading-title {
-  margin-top: -6rem;
-}
-
-.horizontal {
+.text-clip-horizontal {
   display: inline-block;
-  background: linear-gradient(to top, var(--color-text) 50%, var(--color-primary) 50%);
+  background: linear-gradient(to top, var(--color-text) 50%, var(--color-accent) 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.footer {
+  margin: 1rem 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }

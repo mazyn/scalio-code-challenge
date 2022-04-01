@@ -1,22 +1,53 @@
-<main class="container" role="main">
-  <div fxHide.gt-xs="true">
-    <img src="../assets/images/banner-small.jpg" alt="banner" class="banner-sm" />
-    <h3 class="heading-title" ngClass.xs.textClip="horizontal" role="heading">
-      {{ 'You are only limited by your id.' | uppercase }}
-    </h3>
-    <p><em>Actually, just the ones from 1 to 10. But don't tell anyone.</em></p>
+<main class="container" role="main" fxLayout="row">
+  <div fxLayout="row" fxFlex="100">
+    <div fxFlex="33" fxHide.lt-md class="banner-lg"></div>
+    <div fxFlex="67" fxFlex.lt-md="100" fxLayout="column">
+      <div style="height: 100%">
+        <img src="../assets/images/banner-small.jpg" alt="banner" class="banner-md" fxHide.gt-sm="true" />
+        <h1 fxShow.lt-lg="false" role="heading" class="heading-title">
+          {{ headingText | uppercase }} <span style="color: var(--color-accent)">YOUR</span> ID.
+        </h1>
+        <h2 fxShow.lt-md="false" fxShow.gt-md="false" role="heading" class="heading-title">
+          {{ headingText | uppercase }} <span style="color: var(--color-accent)">YOUR</span> ID.
+        </h2>
+        <h3 fxShow.gt-sm="false" role="heading" class="heading-title" ngClass.xs.textClip="text-clip-horizontal">
+          {{ headingText | uppercase }} <span style="color: var(--color-accent)">YOUR</span> ID.
+        </h3>
+        <p><em>Actually, just the ones from 1 to 10. But don't tell anyone.</em></p>
+        <form class="id-input-wrapper" fxLayout="row" (ngSubmit)="onSubmit()">
+          <input
+            [(ngModel)]="id"
+            [ngModelOptions]="{ standalone: true }"
+            id="id-input"
+            placeholder="Tell us your ID"
+            type="tel"
+            mask="09"
+            fxFlex="75"
+            aria-label="Input for ID"
+            title="Tell us your ID, and we'll bring something for you."
+          />
+          <button
+            id="id-button"
+            fxFlex="25"
+            type="submit"
+            (mouseenter)="onButtonHoverEnter()"
+            (mouseleave)="onButtonHoverLeave()"
+            title="Send"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+      <footer class="footer" ngClass.lt-md="text-center" ngClass.gt-sm="text-right">
+        <span>
+          Made with ❤ by
+          <a style="color: var(--color-accent)" href="https://github.com/mazyn" target="_blank" title="My Github">
+            mazyn
+          </a>
+          , for
+          <a style="color: var(--color-scalio)" href="https://scal.io/" target="_blank"><b>Scalio.</b></a>
+        </span>
+      </footer>
+    </div>
   </div>
-  <form class="id-input-wrapper" fxLayout="row" (ngSubmit)="onSubmit()">
-    <input
-      [(ngModel)]="id"
-      [ngModelOptions]="{ standalone: true }"
-      id="id-input"
-      placeholder="Tell us your ID"
-      type="tel"
-      mask="09"
-      fxFlex="75"
-      aria-label="Input for ID"
-    />
-    <button id="id-button" fxFlex="25" type="submit">Send</button>
-  </form>
 </main>
