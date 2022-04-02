@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -12,8 +12,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './get-post.component.html',
   styleUrls: ['./get-post.component.css'],
 })
-export class GetPostComponent {
+export class GetPostComponent implements AfterViewInit {
   @ViewChild('idInput') idInput: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('mobileHeading') mobileHeading: ElementRef<HTMLHeadingElement> | undefined;
 
   public headingText = 'You are only limited by';
   public id: number | undefined;
@@ -25,6 +26,13 @@ export class GetPostComponent {
     private readonly router: Router,
     private readonly toastr: ToastrService,
   ) {}
+
+  ngAfterViewInit(): void {
+    let width = window.innerWidth;
+    if (width >= 355 && width <= 441 && this.mobileHeading) {
+      this.mobileHeading.nativeElement.classList.add('text-clip-horizontal');
+    }
+  }
 
   public onSubmit(): void {
     if (!this.id) return;

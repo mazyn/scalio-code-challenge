@@ -1,11 +1,3 @@
-.banner-md {
-  width: calc(100% + 3rem);
-  height: 33.33vh;
-  object-fit: cover;
-  object-position: center;
-  margin: -1.5rem 0 0 -1.5rem;
-}
-
 .banner-lg {
   background-image: url("../../../assets/images/banner.jpg");
   background-position: center;
@@ -23,7 +15,7 @@
  *    MEDIA QUERIES   *
  **********************/
 
-/* Small devices */
+/* Extra Small devices */
 @media only screen and (max-width: 441px) {
   .heading-title {
     margin-top: -6rem;

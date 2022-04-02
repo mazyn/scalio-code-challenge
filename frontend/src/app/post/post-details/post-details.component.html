@@ -1,15 +1,21 @@
 <main class="container" role="main">
   <div fxFlex="100" fxLayout="row" fxLayoutGap="24">
-    <div fxFlex="50" fxLayout="column">
+    <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
       <div style="height: 100%">
-        <h3 [title]="selectedPost?.title">{{ selectedPost?.title }}</h3>
-        <div class="post-body-wrapper">
-          <textarea [title]="selectedPost?.body" [value]="selectedPost?.body" readonly></textarea>
+        <img src="../../../assets/images/post-details-banner-small.jpg" alt="banner" class="banner-md" fxHide.gt-sm />
+        <h4 fxHide.gt-sm [title]="selectedPost?.title">{{ selectedPost?.title + '.' | uppercase }}</h4>
+        <h3 fxHide.lt-md [title]="selectedPost?.title">{{ selectedPost?.title + '.' | uppercase }}</h3>
+        <div
+          class="text-center width-100 width-85"
+          [ngClass.lt-md]="{ 'width-100': true, 'width-85': false }"
+          [ngClass.gt-sm]="{ 'width-100': false, 'width-85': true }"
+        >
+          <textarea #textAreaEl [title]="selectedPost?.body" [value]="selectedPost?.body" readonly></textarea>
           <a class="go-back-link" routerLink="/" title="Return to home page">Go Back</a>
         </div>
       </div>
       <app-footer></app-footer>
     </div>
-    <div fxFlex="50" class="post-details-img"></div>
+    <div fxFlex="50" fxHide.lt-md class="post-details-img"></div>
   </div>
 </main>

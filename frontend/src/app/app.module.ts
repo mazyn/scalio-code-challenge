@@ -7,7 +7,6 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomBreakPointsProvider } from '../config/flex-layout/custom-breakpoints';
 import { CustomTextClipDirective } from './shared/directives/custom-text-clip-directive';
 import { GetPostModule } from './post/get-post/get-post.module';
 import { PostDetailsModule } from './post/post-details/post-details.module';
@@ -33,7 +32,7 @@ import { LocalStorageService } from './shared/services/local-storage.service';
     GetPostModule,
     PostDetailsModule,
   ],
-  providers: [CustomBreakPointsProvider, LocalStorageService],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

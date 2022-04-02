@@ -8,14 +8,12 @@
 
 .post-body-wrapper {
   width: 85%;
-  text-align: center;
 }
 
 textarea {
   width: 100%;
   resize: none;
   min-height: 20rem;
-  margin-top: 3rem;
   border-color: var(--color-tertiary);
 }
 
@@ -23,7 +21,7 @@ textarea {
   display: block;
   background-color: var(--color-accent);
   padding: .75rem 2rem;
-  margin-top: 3rem;
+  margin: 3rem 0;
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
@@ -37,4 +35,22 @@ textarea {
 
 .go-back-link:active {
   background-color: var(--color-accent-darker);
+}
+
+/**********************
+ *    MEDIA QUERIES   *
+ **********************/
+
+/* Small devices */
+@media only screen and (max-width: 959px) {
+  textarea {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Medium devices or larger */
+@media only screen and (min-width: 960px) {
+  textarea {
+    margin-top: 3rem;
+  }
 }
