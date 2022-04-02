@@ -7,10 +7,18 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { GetPostComponent } from './get-post.component';
 import { PostService } from '../services/post.service';
+import { SharedComponentsModule } from '../../shared/components/shared-components.module';
 
 @NgModule({
   declarations: [GetPostComponent],
-  imports: [CommonModule, FlexLayoutModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
+  imports: [
+    CommonModule,
+    FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
+    NgxMaskModule.forChild(),
+    SharedComponentsModule,
+  ],
   providers: [PostService],
 })
 export class GetPostModule {}

@@ -19,7 +19,6 @@
             #idInput
             [(ngModel)]="id"
             [ngModelOptions]="{ standalone: true }"
-            id="id-input"
             placeholder="Tell us your ID"
             type="tel"
             mask="00"
@@ -40,16 +39,7 @@
           </button>
         </form>
       </div>
-      <footer class="footer" ngClass.lt-md="text-center" ngClass.gt-sm="text-right">
-        <span>
-          Made with ❤ by
-          <a style="color: var(--color-accent)" href="https://github.com/mazyn" target="_blank" title="My Github">
-            mazyn
-          </a>
-          , for
-          <a style="color: var(--color-scalio)" href="https://scal.io/" target="_blank"><b>Scalio.</b></a>
-        </span>
-      </footer>
+      <app-footer></app-footer>
     </div>
   </div>
 </main>

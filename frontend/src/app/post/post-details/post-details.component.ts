@@ -16,6 +16,10 @@ export class PostDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedPost = this.localStorage.get<Post>('post');
-    if (!this.selectedPost) this.router.navigateByUrl('/').then();
+    if (!this.selectedPost) {
+      this.router.navigateByUrl('/').then();
+      return;
+    }
+    document.title = `Mazyn's Posts — ${this.selectedPost.title}`;
   }
 }

@@ -9,8 +9,8 @@ const routes: Routes = [
     component: GetPostComponent,
   },
   {
-    path: 'post-details',
-    loadChildren: () => import('./post/post-details/post-details.module').then((m) => m.PostDetailsModule),
+    path: 'details',
+    loadChildren: () => import('./post/post-details/post-details.module').then(m => m.PostDetailsModule),
   },
 ];
 

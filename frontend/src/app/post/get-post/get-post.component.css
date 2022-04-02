@@ -19,24 +19,6 @@
   max-width: 500px;
 }
 
-#id-input {
-  border: 1px solid var(--color-text);
-  font-family: var(--font-accent);
-  background-color: transparent;
-  font-size: var(--font-size-5);
-  padding: .5rem 1rem;
-  transition: all .2s ease-out;
-  will-change: border-color;
-}
-
-#id-input::placeholder {
-  color: var(--color-text);
-}
-
-#id-input:focus, #id-input.input-hover {
-  border-color: var(--color-accent);
-}
-
 button#id-button {
   background-color: var(--color-text);
   border: none;
@@ -49,7 +31,7 @@ button#id-button {
   will-change: background-color, color;
 }
 
-#id-input:focus + button#id-button, button#id-button:hover {
+input:focus + button#id-button, button#id-button:hover {
   background-color: var(--color-accent);
   color: var(--color-text);
 }
