@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './get-post.component.html',
   styleUrls: ['./get-post.component.css'],
 })
-export class GetPostComponent implements AfterViewInit {
+export class GetPostComponent implements OnInit, AfterViewInit {
   @ViewChild('idInput') idInput: ElementRef<HTMLInputElement> | undefined;
   @ViewChild('mobileHeading') mobileHeading: ElementRef<HTMLHeadingElement> | undefined;
 
@@ -26,6 +26,10 @@ export class GetPostComponent implements AfterViewInit {
     private readonly router: Router,
     private readonly toastr: ToastrService,
   ) {}
+
+  ngOnInit(): void {
+    document.title = "Mazyn's Posts — You Are Only Limited By YOUR ID.";
+  }
 
   ngAfterViewInit(): void {
     let width = window.innerWidth;

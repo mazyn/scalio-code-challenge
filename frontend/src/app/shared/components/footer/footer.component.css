@@ -1,3 +1,7 @@
 .footer {
   margin: 1rem 0;
 }
+
+a:hover {
+  color: var(--color-accent);
+}
