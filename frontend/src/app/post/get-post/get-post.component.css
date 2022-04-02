@@ -33,7 +33,7 @@
   color: var(--color-text);
 }
 
-#id-input.input-hover {
+#id-input:focus, #id-input.input-hover {
   border-color: var(--color-accent);
 }
 
@@ -49,7 +49,7 @@ button#id-button {
   will-change: background-color, color;
 }
 
-button#id-button:hover {
+#id-input:focus + button#id-button, button#id-button:hover {
   background-color: var(--color-accent);
   color: var(--color-text);
 }
