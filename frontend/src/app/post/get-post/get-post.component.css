@@ -19,23 +19,6 @@
   max-width: 500px;
 }
 
-button#id-button {
-  background-color: var(--color-text);
-  border: none;
-  color: var(--color-accent);
-  font-family: var(--font-accent);
-  text-transform: uppercase;
-  font-size: var(--font-size-6);
-  font-weight: 700;
-  transition: all .2s ease-out;
-  will-change: background-color, color;
-}
-
-input:focus + button#id-button, button#id-button:hover {
-  background-color: var(--color-accent);
-  color: var(--color-text);
-}
-
 /**********************
  *    MEDIA QUERIES   *
  **********************/

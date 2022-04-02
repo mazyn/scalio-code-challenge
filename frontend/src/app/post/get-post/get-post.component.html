@@ -26,17 +26,19 @@
             fxFlex="75"
             aria-label="Input for ID"
             title="Tell us your ID, and we'll bring something for you."
+            (focusin)="onInputFocusIn()"
+            (focusout)="onInputFocusOut()"
           />
-          <button
-            id="id-button"
+          <app-button
             fxFlex="25"
+            id="id-button"
             type="submit"
-            (mouseenter)="onButtonHoverEnter()"
-            (mouseleave)="onButtonHoverLeave()"
             title="Send"
-          >
-            Send
-          </button>
+            text="Send"
+            (onMouseEnter)="onButtonHoverEnter()"
+            (onMouseLeave)="onButtonHoverLeave()"
+            [invertColor]="buttonInvertColor"
+          ></app-button>
         </form>
       </div>
       <app-footer></app-footer>

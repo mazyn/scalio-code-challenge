@@ -17,6 +17,7 @@ export class GetPostComponent {
 
   public headingText = 'You are only limited by';
   public id: number | undefined;
+  public buttonInvertColor: boolean = false;
 
   constructor(
     private readonly postService: PostService,
@@ -25,7 +26,7 @@ export class GetPostComponent {
     private readonly toastr: ToastrService,
   ) {}
 
-  public onSubmit() {
+  public onSubmit(): void {
     if (!this.id) return;
     this.postService
       .get(this.id)
@@ -43,11 +44,19 @@ export class GetPostComponent {
       });
   }
 
-  public onButtonHoverEnter() {
+  public onButtonHoverEnter(): void {
     this.idInput?.nativeElement.classList.add('input-hover');
   }
 
-  public onButtonHoverLeave() {
+  public onButtonHoverLeave(): void {
     this.idInput?.nativeElement.classList.remove('input-hover');
+  }
+
+  public onInputFocusIn(): void {
+    this.buttonInvertColor = true;
+  }
+
+  public onInputFocusOut(): void {
+    this.buttonInvertColor = false;
   }
 }

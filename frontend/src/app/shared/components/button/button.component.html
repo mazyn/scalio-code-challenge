@@ -1,0 +1,11 @@
+<button
+  [id]="id"
+  [fxFlex]="width"
+  [type]="type"
+  (mouseenter)="emitOnMouseEnter($event)"
+  (mouseleave)="emitOnMouseLeave($event)"
+  [title]="text"
+  [class.button-inverted]="invertColor"
+>
+  {{ text }}
+</button>
