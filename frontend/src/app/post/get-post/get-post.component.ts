@@ -1,8 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { PostService } from '../services/post.service';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
+import { PostService } from '../services/post.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-get-post',
@@ -19,6 +22,7 @@ export class GetPostComponent {
     private readonly postService: PostService,
     private readonly localStorage: LocalStorageService,
     private readonly router: Router,
+    private readonly toastr: ToastrService,
   ) {}
 
   public onSubmit() {
@@ -30,10 +34,12 @@ export class GetPostComponent {
         next: res => {
           if (this.localStorage.set('post', res)) this.router.navigate(['post-details']).then();
           else {
-            // TODO: Throw error
+            this.toastr.error('Something went wrong when redirecting you, please try again.', 'Oops!');
           }
         },
-        error: console.error,
+        error: ({ error: err }: HttpErrorResponse) => {
+          this.toastr.error(err.message, 'Oops!');
+        },
       });
   }
 

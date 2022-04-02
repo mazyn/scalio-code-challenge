@@ -1,0 +1,8 @@
+::ng-deep div .toast-container .ngx-toastr {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+::ng-deep .toast-error {
+  background-color: var(--color-accent);
+}
