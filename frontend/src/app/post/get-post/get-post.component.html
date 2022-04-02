@@ -1,9 +1,9 @@
-<main class="container" role="main" fxLayout="row">
+<main class="container" role="main">
   <div fxLayout="row" fxFlex="100">
     <div fxFlex="33" fxHide.lt-md class="banner-lg"></div>
     <div fxFlex="67" fxFlex.lt-md="100" fxLayout="column">
       <div style="height: 100%">
-        <img src="../assets/images/banner-small.jpg" alt="banner" class="banner-md" fxHide.gt-sm="true" />
+        <img src="../../../assets/images/banner-small.jpg" alt="banner" class="banner-md" fxHide.gt-sm="true" />
         <h1 fxShow.lt-lg="false" role="heading" class="heading-title">
           {{ headingText | uppercase }} <span style="color: var(--color-accent)">YOUR</span> ID.
         </h1>
@@ -16,6 +16,7 @@
         <p><em>Actually, just the ones from 1 to 10. But don't tell anyone.</em></p>
         <form class="id-input-wrapper" fxLayout="row" (ngSubmit)="onSubmit()">
           <input
+            #idInput
             [(ngModel)]="id"
             [ngModelOptions]="{ standalone: true }"
             id="id-input"
