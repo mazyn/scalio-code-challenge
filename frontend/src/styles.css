@@ -152,6 +152,7 @@ input, textarea {
   background-color: transparent;
   font-size: var(--font-size-5);
   padding: .5rem 1rem;
+  border-radius: 0;
 }
 
 input {
