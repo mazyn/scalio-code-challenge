@@ -19,6 +19,7 @@ export class GetPostComponent implements OnInit, AfterViewInit {
   public headingText = 'You are only limited by';
   public id: number | undefined;
   public buttonInvertColor: boolean = false;
+  public isLoading: boolean = false;
 
   constructor(
     private readonly postService: PostService,
@@ -40,17 +41,20 @@ export class GetPostComponent implements OnInit, AfterViewInit {
 
   public onSubmit(): void {
     if (!this.id) return;
+    this.isLoading = true;
     this.postService
       .get(this.id)
       .pipe(take(1))
       .subscribe({
         next: res => {
-          if (this.localStorage.set('post', res)) this.router.navigate(['details']).then();
+          if (this.localStorage.set('post', res))
+            this.router.navigate(['details']).then(() => (this.isLoading = false));
           else {
             this.toastr.error('Something went wrong when redirecting you, please try again.', 'Oops!');
           }
         },
         error: ({ error: err }: HttpErrorResponse) => {
+          this.isLoading = false;
           this.toastr.error(err.message, 'Oops!');
         },
       });

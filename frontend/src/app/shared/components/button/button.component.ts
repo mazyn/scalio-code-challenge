@@ -11,6 +11,7 @@ export class ButtonComponent implements OnInit {
   @Input() text: string = 'OK';
   @Input() width: string = '100';
   @Input() invertColor: boolean = false;
+  @Input() isLoading: boolean = false;
 
   @Output() onMouseEnter = new EventEmitter<MouseEvent>();
   @Output() onMouseLeave = new EventEmitter<MouseEvent>();

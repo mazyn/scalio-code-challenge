@@ -7,5 +7,13 @@
   [title]="text"
   [class.button-inverted]="invertColor"
 >
-  {{ text }}
+  <app-loading
+    *ngIf="isLoading; else btnText"
+    [sizeInPx]="38"
+    [color]="invertColor ? 'var(--color-text)' : 'var(--color-accent)'"
+    colorHover="var(--color-text)"
+  ></app-loading>
+  <ng-template #btnText>
+    {{ text }}
+  </ng-template>
 </button>
