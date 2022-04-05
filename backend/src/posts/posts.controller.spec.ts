@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
 import Post from './entities/post.entity';
-import postsJson from '../../common/data/posts.json';
+import postsJson from '../common/data/posts.json';
 import { PostsRepository } from './posts.repository';
 
 describe('PostsController', () => {

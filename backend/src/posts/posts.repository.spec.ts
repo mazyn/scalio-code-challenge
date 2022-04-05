@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import Post from './entities/post.entity';
 import { PostsRepository } from './posts.repository';
-import postsJson from '../../common/data/posts.json';
+import postsJson from '../common/data/posts.json';
 
 describe('PostsRepository', () => {
   let provider: PostsRepository;
