@@ -47,15 +47,15 @@ export class GetPostComponent implements OnInit, AfterViewInit {
       .pipe(take(1))
       .subscribe({
         next: res => {
-          if (this.localStorage.set('post', res))
-            this.router.navigate(['details']).then(() => (this.isLoading = false));
-          else {
-            this.toastr.error('Something went wrong when redirecting you, please try again.', 'Oops!');
-          }
+          if (this.localStorage.set('post', res)) this.router.navigate(['details']).then();
+          else this.toastr.error('Something went wrong when redirecting you, please try again.', 'Oops!');
         },
         error: ({ error: err }: HttpErrorResponse) => {
           this.isLoading = false;
           this.toastr.error(err.message, 'Oops!');
+        },
+        complete: () => {
+          this.isLoading = false;
         },
       });
   }
